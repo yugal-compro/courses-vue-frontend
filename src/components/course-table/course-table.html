@@ -1,0 +1,9 @@
+<h1>Courses</h1>
+<h2 v-if="isLoading">Loading...</h2>
+<h2 v-else-if="error">{{ error }}</h2>
+<div v-else class="courses-container">
+    <div v-for="course in courses" :key="course.subjectId" @click="showDetails(course.subjectId)">
+        <p>Subject:- {{ course.subjectName }}</p>
+        <p>Course:- {{ course.courseName }}</p>
+    </div>
+</div>

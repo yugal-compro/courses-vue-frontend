@@ -1,0 +1,19 @@
+<div>
+    <h1> {{ course.subjectName }} </h1>
+    <p> Course Name: {{ course.courseName }} </p>
+    <p> Date Created: {{ course.dateCreated }} </p>
+    <p> Date Modified: {{ course.dateModified }} </p>
+    <button @click="toggleUpdate()">Update</button>
+    <button @click="deleteCourse()">Delete</button>
+</div>
+<div v-show="update">
+    <div>
+        <label>Subject Name: </label>
+        <input type="text" v-model="newSubject">
+    </div>
+    <div>
+        <label>Course name: </label>
+        <input type="text" v-model="newCourse">
+    </div>
+    <button @click="updateCourse()">Submit</button>
+</div>

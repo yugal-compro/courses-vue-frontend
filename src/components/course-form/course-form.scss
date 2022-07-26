@@ -1,0 +1,43 @@
+.form-container {
+    background-color: #86caf1;
+    align-items: center;
+    border: 5px solid #0066A2;
+    border-radius: 8px;
+    padding: 16px;
+    h1 {
+        margin: 0;
+        padding: 0;
+        color: #0066A2;
+    }
+
+    div {
+        margin: 8px;
+
+        label {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: darkblue;
+            width: 200px;
+        }
+
+        input {
+            width: 200px;
+            border-radius: 4px;
+        }
+    }
+
+    button {
+        background: #0066A2;
+        color: white;
+        border-style: outset;
+        border-color: #0066A2;
+        border-radius: 8px;
+        height: 30px;
+        width: 100px;
+
+        &:hover {
+            background-color: white;
+            color: #0066A2;
+            cursor: pointer;
+        }
+    }
+}
