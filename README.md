@@ -1,4 +1,7 @@
-# training
+# Frontend using vue for courses assignment
+
+## Backend project
+Here is a link for backend project [course API](https://github.com/yugal-compro/express-assignment)
 
 ## Project setup
 ```
