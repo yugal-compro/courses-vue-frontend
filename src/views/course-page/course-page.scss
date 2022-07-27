@@ -1,0 +1,60 @@
+.course-page-container{
+    
+    margin-top: 100px;
+    margin-bottom: 100px;
+    .course-tile-header{
+        background-color: white;
+        text-align: center;
+        border-radius: 8px;
+        width: 500px;
+        box-shadow: 5px 10px 18px #888888;
+        margin: 20px auto 20px;
+        padding: 16px;
+        a{
+            font-size: 24px;
+            color: rgb(249, 139, 161);
+        }
+    }
+    .course-details{
+        background-color: white;
+        text-align: center;
+        border-radius: 8px;
+        width: 500px;
+        box-shadow: 5px 10px 18px #888888;
+        margin: 20px auto auto;
+        h1{
+            color: rgb(249, 139, 161);
+            text-shadow:  2px 2px 0 crimson,
+            -1px -1px 0 crimson,
+            -1px 1px 0 crimson,
+            1px -1px 0 crimson,
+            1px 1px 0 crimson;
+        }
+        p{
+            font-weight: bold;
+            font-style: italic;
+        }
+        button{
+            border: 2px solid black;
+            border-radius: 4px;
+            margin:5px;
+            color: black;
+            background-color: rgb(249, 139, 161);
+            &:hover{
+                cursor: pointer;
+                background-color: white;
+            }
+        }
+    }
+    .update-form{
+        width: 500px;
+        margin: auto;
+        padding: 16px;
+        background-color: rgb(205, 199, 210);
+        border-radius: 8px;
+        box-shadow: 5px 10px 18px #888888;
+        button{
+            margin-top: 8px;
+        }
+    }
+}

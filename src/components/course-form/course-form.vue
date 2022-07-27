@@ -19,6 +19,7 @@ export default {
       this.$store.dispatch('courses/addCourse', obj);
       this.enteredSubject = '';
       this.enteredCourse = '';
+      document.querySelector('.courses-container').scrollIntoView();
     }
   }
 };

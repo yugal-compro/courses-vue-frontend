@@ -1,10 +1,11 @@
-<template src="./course-id.html">
+<template src="./course-page.html">
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
 
 export default {
+  name: 'CoursePage',
   data() {
     return {
       id: this.$route.params.subjectId,
@@ -25,19 +26,21 @@ export default {
     toggleUpdate() {
       this.update = !this.update;
     },
-    updateCourse() {
+    updateCourse(sub, cour) {
       const courseDetails = {
         id: this.id,
-        subject: this.newSubject,
-        course: this.newCourse
+        subject: sub,
+        course: cour
       };
       this.$store.dispatch('courses/updateCourse', courseDetails);
-      this.$router.go();
       this.toggleUpdate();
+      this.$toast('Course Updated!!!');
+      this.$router.push();
     },
     deleteCourse() {
       this.$store.dispatch('courses/deleteCourse', this.id);
-      this.$router.replace('/home-page');
+      this.$toast('Course Deleted!!!');
+      this.$router.push({ name: 'HomePage' });
     }
   },
   created() {
@@ -46,5 +49,5 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped src="./course-id.scss">
+<style lang="scss" scoped src="./course-page.scss">
 </style>

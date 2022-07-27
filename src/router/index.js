@@ -1,21 +1,21 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '../views/home-page/home-page.vue';
-import CourseId from '../components/course-id/course-id.vue';
+import CoursePage from '../views/course-page/course-page.vue';
 
 const routes = [
   {
     path: '/',
-    redirect: '/home-page'
+    redirect: '/courses'
   },
   {
-    path: '/home-page',
+    path: '/courses',
     name: 'HomePage',
     component: HomePage
   },
   {
-    path: '/home-page/course/:subjectId',
-    name: 'CourseId',
-    component: CourseId
+    path: '/courses/:subjectId',
+    name: 'CoursePage',
+    component: CoursePage
   }
 ];
 

@@ -8,7 +8,6 @@ export default {
   computed: {
     ...mapGetters('courses', [
       'error',
-      'isLoading',
       'courses'
     ])
   },
@@ -17,7 +16,12 @@ export default {
       this.$store.dispatch('courses/showCourses');
     },
     showDetails(id) {
-      this.$router.push(`home-page/course/${id}`);
+      this.$router.push({
+        name: 'CoursePage',
+        params: {
+          subjectId: id
+        }
+      });
     }
   },
   created() {

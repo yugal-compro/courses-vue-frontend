@@ -1,0 +1,24 @@
+<div class="course-page-container">
+<div class="course-tile-header">
+    <router-link :to="{name: 'HomePage'}"><font-awesome-icon icon="home" /></router-link>
+</div>
+<div class="course-details">
+    <h1> {{ course.subjectName }} </h1>
+    <p> Course Name: {{ course.courseName }} </p>
+    <p> Date Created: {{ course.dateCreated }} </p>
+    <p> Date Modified: {{ course.dateModified }} </p>
+    <button class="btn" @click="toggleUpdate()"><font-awesome-icon icon="pen" /></button>
+    <button class="btn" @click="deleteCourse()"><font-awesome-icon icon="trash" /></button>
+</div>
+<div v-show="update" class="update-form">
+    <div>
+        <label class="form-label">Subject Name: </label>
+        <input type="text" class="form-control" v-model=course.subjectName>
+    </div>
+    <div>
+        <label class="form-label">Course name: </label>
+        <input type="text" class="form-control" v-model=course.courseName>
+    </div>
+    <button class="btn btn-primary" @click="updateCourse(course.subjectName,course.courseName)">Submit</button>
+</div>
+</div>
