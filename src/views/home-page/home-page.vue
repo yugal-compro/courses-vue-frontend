@@ -10,6 +10,9 @@ export default {
   components: {
     CourseForm,
     CourseTable
+  },
+  created() {
+    this.$store.dispatch('courses/showCourses');
   }
 };
 </script>

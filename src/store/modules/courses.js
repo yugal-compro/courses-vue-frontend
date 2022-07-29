@@ -20,21 +20,21 @@ const courses = {
     updateCourses(state, allCourses) {
       state.courses = allCourses;
     },
-    getCourse(state, course) {
+    updateCourseById(state, course) {
       state.courseId = course;
     }
   },
   actions: {
-    async showCourses(context) {
+    async showCourses({ commit }) {
       try {
         const response = await axios.get('http://localhost:7000/api/courses');
         const result = response.data;
-        context.commit('updateCourses', result);
+        commit('updateCourses', result);
       } catch (error) {
         console.log(error);
       }
     },
-    async addCourse(context, payload) {
+    async addCourse({ commit }, payload) {
       const newCourse = {
         subjectName: payload.subject,
         courseName: payload.course
@@ -42,21 +42,21 @@ const courses = {
       try {
         const response = await axios.post('http://localhost:7000/api/courses', newCourse);
         const result = response.data;
-        context.commit('updateCourses', result);
+        commit('updateCourses', result);
       } catch (error) {
         console.log(error);
       }
     },
-    async getCourse(context, payload) {
+    async getCourse({ commit }, courseId) {
       try {
-        const response = await axios.get(`http://localhost:7000/api/courses/${payload}`);
+        const response = await axios.get(`http://localhost:7000/api/courses/${courseId}`);
         const result = response.data;
-        context.commit('getCourse', result);
+        commit('updateCourseById', result);
       } catch (error) {
         console.log(error);
       }
     },
-    async updateCourse(context, payload) {
+    async updateCourse({ commit }, payload) {
       const data = {
         subjectName: payload.subject,
         courseName: payload.course
@@ -65,7 +65,7 @@ const courses = {
         const response = await axios.put(`http://localhost:7000/api/courses/${payload.id}`, data);
         const result = response.data;
         console.log(result);
-        context.commit('getCourse', result);
+        commit('updateCourseById', result);
       } catch (error) {
         console.log(error);
       }
