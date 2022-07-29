@@ -1,7 +1,6 @@
 <div class="my-container">
 <h1>Courses</h1>
-<p v-if="error">{{ error }}</p>
-<div v-else class="courses-container">
+<div class="courses-container">
     <div v-for="course in courses" :key="course.subjectId" @click="showDetails(course.subjectId)">
         <p>Subject: {{ course.subjectName }}</p>
         <p>Course: {{ course.courseName }}</p>

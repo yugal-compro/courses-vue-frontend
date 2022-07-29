@@ -1,0 +1,15 @@
+<div class="auth-form-container">
+    <div>
+        <label for="">E-mail: </label>
+        <input type="email" v-model.trim="email">
+    </div>
+    <div>
+        <label for="">Password: </label>
+        <input type="password" v-model.trim="password">
+    </div>
+    <div>
+        <button @click="submitForm">Login</button>
+        <button>Sign Up</button>
+    </div>
+    <p v-if="!formIsValid">Please enter a valid email and password (must be atleast 6 characters long.)</p>
+</div>
