@@ -7,14 +7,10 @@ import { mapGetters } from 'vuex';
 export default {
   computed: {
     ...mapGetters('courses', [
-      'error',
       'courses'
     ])
   },
   methods: {
-    loadCourses() {
-      this.$store.dispatch('courses/showCourses');
-    },
     showDetails(id) {
       this.$router.push({
         name: 'CoursePage',
@@ -23,9 +19,6 @@ export default {
         }
       });
     }
-  },
-  created() {
-    this.loadCourses();
   }
 };
 </script>

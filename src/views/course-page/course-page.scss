@@ -12,7 +12,7 @@
         padding: 16px;
         a{
             font-size: 24px;
-            color: rgb(249, 139, 161);
+            color: #758ded;
         }
     }
     .course-details{
@@ -23,12 +23,12 @@
         box-shadow: 5px 10px 18px #888888;
         margin: 20px auto auto;
         h1{
-            color: rgb(249, 139, 161);
-            text-shadow:  2px 2px 0 crimson,
-            -1px -1px 0 crimson,
-            -1px 1px 0 crimson,
-            1px -1px 0 crimson,
-            1px 1px 0 crimson;
+            color: #758ded;
+            text-shadow:  2px 2px 0 #293462,
+            -1px -1px 0 #293462,
+            -1px 1px 0 #293462,
+            1px -1px 0 #293462,
+            1px 1px 0 #293462;
         }
         p{
             font-weight: bold;
@@ -39,7 +39,7 @@
             border-radius: 4px;
             margin:5px;
             color: black;
-            background-color: rgb(249, 139, 161);
+            background-color: #758ded;
             &:hover{
                 cursor: pointer;
                 background-color: white;

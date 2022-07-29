@@ -16,26 +16,25 @@ export default {
   },
   computed: {
     ...mapGetters('courses', {
-      course: 'courseById'
+      course: 'courseId'
     })
   },
   methods: {
-    getCourse() {
-      this.$store.dispatch('courses/getCourseById', this.id);
-    },
     toggleUpdate() {
       this.update = !this.update;
+      this.newSubject = this.course.subjectName;
+      this.newCourse = this.course.courseName;
+      console.log(this.course);
     },
-    updateCourse(sub, cour) {
+    updateCourse() {
       const courseDetails = {
         id: this.id,
-        subject: sub,
-        course: cour
+        subject: this.newSubject,
+        course: this.newCourse
       };
       this.$store.dispatch('courses/updateCourse', courseDetails);
-      this.toggleUpdate();
+      this.update = !this.update;
       this.$toast('Course Updated!!!');
-      this.$router.push();
     },
     deleteCourse() {
       this.$store.dispatch('courses/deleteCourse', this.id);
@@ -44,7 +43,7 @@ export default {
     }
   },
   created() {
-    this.getCourse();
+    this.$store.dispatch('courses/getCourse', this.id);
   }
 };
 </script>

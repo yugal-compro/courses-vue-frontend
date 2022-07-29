@@ -5,43 +5,36 @@ const courses = {
   state() {
     return {
       courses: [],
-      courseById: null,
-      error: null
+      courseId: null
     };
   },
   getters: {
-    error(state) {
-      return state.error;
-    },
     courses(state) {
       return state.courses;
     },
-    courseById(state) {
-      return state.courseById;
+    courseId(state) {
+      return state.courseId;
     }
   },
   mutations: {
-    updateCourses(state, payload) {
-      state.courses = payload;
+    updateCourses(state, allCourses) {
+      state.courses = allCourses;
     },
-    getCourseById(state, payload) {
-      state.courseById = payload;
-    },
-    errorMessage(state, payload) {
-      state.error = payload;
+    updateCourseById(state, course) {
+      state.courseId = course;
     }
   },
   actions: {
-    async showCourses(context) {
+    async showCourses({ commit }) {
       try {
         const response = await axios.get('http://localhost:7000/api/courses');
         const result = response.data;
-        context.commit('updateCourses', result);
+        commit('updateCourses', result);
       } catch (error) {
-        context.commit('errorMessage', 'Unable to get courses right now try after some time');
+        console.log(error);
       }
     },
-    async addCourse(context, payload) {
+    async addCourse({ commit }, payload) {
       const newCourse = {
         subjectName: payload.subject,
         courseName: payload.course
@@ -49,36 +42,39 @@ const courses = {
       try {
         const response = await axios.post('http://localhost:7000/api/courses', newCourse);
         const result = response.data;
-        context.commit('updateCourses', result);
+        commit('updateCourses', result);
       } catch (error) {
-        context.commit('errorMessage', 'Unable to add course at the moment');
+        console.log(error);
       }
     },
-    async getCourseById(context, payload) {
+    async getCourse({ commit }, courseId) {
       try {
-        const response = await axios.get(`http://localhost:7000/api/courses/${payload}`);
+        const response = await axios.get(`http://localhost:7000/api/courses/${courseId}`);
         const result = response.data;
-        context.commit('getCourseById', result);
+        commit('updateCourseById', result);
       } catch (error) {
-        context.commit('errorMessage', 'Unable to get the course at the moment please try again later.');
+        console.log(error);
       }
     },
-    async updateCourse(context, payload) {
+    async updateCourse({ commit }, payload) {
       const data = {
         subjectName: payload.subject,
         courseName: payload.course
       };
       try {
-        await axios.put(`http://localhost:7000/api/courses/${payload.id}`, data);
+        const response = await axios.put(`http://localhost:7000/api/courses/${payload.id}`, data);
+        const result = response.data;
+        console.log(result);
+        commit('updateCourseById', result);
       } catch (error) {
-        context.commit('errorMessage', 'Unable to update the course');
+        console.log(error);
       }
     },
-    async deleteCourse(context, payload) {
+    async deleteCourse(_, payload) {
       try {
         await axios.delete(`http://localhost:7000/api/courses/${payload}`);
       } catch (error) {
-        context.commit('errorMessage', 'Unable to delete the course');
+        console.log(error);
       }
     }
   }

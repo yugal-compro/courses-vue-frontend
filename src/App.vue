@@ -1,7 +1,7 @@
 <template>
-  <course-header/>
+  <CourseHeader/>
   <router-view/>
-  <course-footer/>
+  <CourseFooter/>
 </template>
 
 <script>
