@@ -17,11 +17,6 @@ const routes = [
     path: '/courses/:subjectId',
     name: 'CoursePage',
     component: CoursePage
-  },
-  {
-    path: '/auth',
-    name: 'AuthPage',
-    component: AuthPage
   }
 ];
 
